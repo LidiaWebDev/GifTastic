@@ -1,3 +1,4 @@
+// cartoons are listed in the array
 var topics = [
   "Pinocchio",
   "Bambi",
@@ -21,22 +22,22 @@ var topics = [
 ];
 
 var button;
-var newTopic = ""; // new topic that will be added via the input field
+var newTopic = "";
 
-// function to create new buttons from the topics array
+// function to create new buttons from the topics array and dispay them on the screen
 var renderButtons = function() {
   // the previous div elements are emptied
   $("#buttonArea").empty();
   // loops through the array and creates buttons
   for (i = 0; i < topics.length; i++) {
     button = $("<button type=" + "button" + ">" + topics[i] + "</button>")
-      .addClass("btn btn-warning")
+      .addClass("btn btn-info")
       .attr("data", topics[i]);
     $("#buttonArea").append(button);
   }
 };
 
-// The user clicks on a generated orange button, which generates 10 static, non-animated gif images from the GIPHY API and places them on the page.
+// click on function - generates and displays 10 gifs using  Giphy API
 $("#buttonArea").on("click", ".btn", function() {
   var cartoon = $(this).attr("data");
   var queryURL =
@@ -57,7 +58,7 @@ $("#buttonArea").on("click", ".btn", function() {
       // a div is created to hold a gif of any topic
       var topicDiv = $("<div>");
 
-      // Under every gif, display its rating (PG, G, so on).
+      // raiting added
       var p = $("<p>");
       p.text(results[i].rating);
       var p = $("<p>").text("Rating: " + results[i].rating);
@@ -65,7 +66,7 @@ $("#buttonArea").on("click", ".btn", function() {
       // adding a purple border for the image picture
       var topicImage = $("<img>").addClass("purpleBorder");
 
-      // add states of animate and still which will be toggled
+      // add states of animate and still
       topicImage.attr("src", results[i].images.fixed_height_still.url);
       topicImage.attr("data-still", results[i].images.fixed_height_still.url);
       topicImage.attr("data-animate", results[i].images.fixed_height.url);
@@ -76,20 +77,20 @@ $("#buttonArea").on("click", ".btn", function() {
       topicDiv.append(topicImage);
       // rating is appended to the div below the gif
       topicDiv.append(p);
-      // new images will be placed at the beginning (top) of the containing gif area
+      // new images will be placed at the beginning (top)
       $("#gifArea").prepend(topicDiv);
     }
   });
 });
 
-// When the user clicks one of the still GIPHY images, and it animates. When the user clicks the gif again, it stops playing.
+// click on image to stop or animate
 $("#gifArea").on("click", ".gif", function(event) {
   event.preventDefault();
 
   // gets the current state of the clicked gif
   var state = $(this).attr("data-state");
 
-  // according to the current state gifs toggle between animate and still
+  // according to the current state gifs switch between animate and still
   if (state === "still") {
     $(this).attr("src", $(this).attr("data-animate"));
     $(this).attr("data-state", "animate");
@@ -99,13 +100,12 @@ $("#gifArea").on("click", ".gif", function(event) {
   }
 });
 
-// The form takes the value from the input box and adds it into the topics  array. The buttonGenerator function is called that takes each topic in the array remakes the buttons on the page.
-
+// click submit the new cartoon to the array
 $(".submit").on("click", function(event) {
   event.preventDefault();
 
   console.log("submit");
-  // sets inputted value to newTopic
+  // sets  value to newTopic
   newTopic = $("#topic-input").val();
   // new topic is added to the topics array
   topics.push(newTopic);
