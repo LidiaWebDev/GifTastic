@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Homework assignment GifTastic -->
+    <title>GifTastic</title>
+    <!-- Reset css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
+    <!-- Bootstrap connected -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <!-- local css file connected -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <!-- google fonts connected -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Pacifico"
+      ,
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- container created for the file -->
+    <div class="container-fluid" id="wrap">
+      <!-- created a row with the title for the game -->
+      <div class="row">
+        <div class="col-md-12 border"><h1 id="name">Disney Cartoons</h1></div>
+      </div>
+      <!-- creating buttons -->
+      <div class="row">
+        <div class="col-md-12 border" id="buttonArea"></div>
+      </div>
+      <!-- Input Area -->
+      <div class="row">
+        <div class="col-md-12 border">
+          <form>
+            <fieldset>
+              <label for="topic-input">Add a cartoon</label><br />
+              <input
+                id="topic-input"
+                type="text"
+                placeholder="Write a cartoon"
+              />
+              <button class="btn submit" type="submit" data="submitBtn">
+                Submit
+              </button>
+              <p class="comments">Click the gif to pause & play</p>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+      <!-- creating a raw for the gifs -->
+      <div class="row"><div class="col-md-12 border" id="gifArea"></div></div>
+    </div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/javascript/gif.js"></script>
+</html>

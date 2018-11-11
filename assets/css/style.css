@@ -1,0 +1,36 @@
+body {
+  height: 100%;
+  width: 100%;
+  background-color: lavenderblush;
+}
+
+button,
+div,
+form,
+input {
+  margin-top: 20px;
+  color: purple;
+}
+
+.purpleBorder {
+  border-radius: 3px;
+  border: 2px solid purple;
+}
+
+#name {
+  color: darkmagenta;
+  font-family: "Pacifico", cursive;
+  padding-top: 16px;
+}
+#buttonArea {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: purple;
+  padding-bottom: 30px;
+}
+
+#gifArea {
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
